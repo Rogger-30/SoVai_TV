@@ -1,0 +1,3651 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Só Vai TV - Criação de Conteúdo Profissional</title>
+    <meta name="description" content="Empresa especializada em criação de conteúdo audiovisual. Transformamos ideias em experiências impactantes para sua marca.">
+    <meta name="author" content="Só Vai TV">
+    <meta name="keywords" content="criação de conteúdo, produção audiovisual, marketing digital, vídeos, eventos, São Paulo">
+    
+    <meta property="og:title" content="Só Vai TV - Criação de Conteúdo Profissional">
+    <meta property="og:description" content="Empresa especializada em criação de conteúdo audiovisual. Transformamos ideias em experiências impactantes para sua marca.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@lovable_dev">
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Só Vai TV - CSS Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Brand Colors */
+            --background: #141414;
+            --foreground: #fafafa;
+            --card: #1f1f1f;
+            --card-foreground: #fafafa;
+            --primary: #ff6b35;
+            --primary-foreground: #fafafa;
+            --secondary: #2d2d2d;
+            --secondary-foreground: #fafafa;
+            --muted: #262626;
+            --muted-foreground: #a6a6a6;
+            --accent: #ff6b35;
+            --accent-foreground: #fafafa;
+            --border: #333333;
+            --input: #2d2d2d;
+            
+            /* Custom Brand Variables */
+            --brand-orange: #ff6b35;
+            --brand-orange-light: #ff8c5a;
+            --brand-dark: #141414;
+            --brand-darker: #0a0a0a;
+            --brand-gray: #262626;
+            --brand-light-gray: #404040;
+            
+            /* Shadows */
+            --shadow-glow: 0 0 30px rgba(255, 107, 53, 0.3);
+            --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            
+            /* Transitions */
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Exo 2', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        body.loaded {
+            opacity: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Utility Classes */
+        .section-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent, rgba(255, 107, 53, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--foreground);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-text {
+            font-size: 1rem;
+            color: var(--muted-foreground);
+            max-width: 100%;
+            margin: 0 auto;
+            line-height: 1.75;
+            text-align: center;
+        }
+
+        .section-content {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .glass-card {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .glow-effect {
+            box-shadow: var(--shadow-glow);
+            transition: var(--transition-smooth);
+        }
+
+        .glow-effect:hover {
+            box-shadow: 0 0 50px rgba(255, 107, 53, 0.5);
+        }
+
+        .brand-button {
+            background: linear-gradient(to right, var(--brand-orange), var(--brand-orange-light));
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 0.75rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            transform: scale(1);
+            box-shadow: var(--shadow-glow);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
+        }
+
+        .brand-button:hover {
+            background: linear-gradient(to right, var(--brand-orange-light), var(--brand-orange));
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 107, 53, 0.5);
+        }
+
+/* Botão Hamburguer - Visível apenas em DESKTOP */
+.nav-desktop-toggle {
+    display: none; /* Oculto por padrão */
+}
+
+.desktop-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-sizing: content-box;
+}
+
+.desktop-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.desktop-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.desktop-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Menu Desktop Hamburguer (oculto por padrão) */
+.nav-desktop-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    background: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(51, 51, 51, 0.5);
+    border-radius: 0.75rem;
+    padding: 1rem 0;
+    z-index: 45;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    min-width: 200px;
+}
+
+.nav-desktop-menu.active {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+.nav-desktop-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: var(--foreground);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid rgba(51, 51, 51, 0.3);
+}
+
+.nav-desktop-link:last-child {
+    border-bottom: none;
+}
+
+.nav-desktop-link:hover {
+    color: var(--primary);
+    background: rgba(255, 107, 53, 0.1);
+    padding-left: 2rem;
+}
+
+/* MEDIA QUERIES - Controle de visibilidade por dispositivo */
+
+/* Desktop - Mostrar botão hamburger e esconder menu tradicional */
+@media (min-width: 1025px) {
+    .nav-desktop {
+        display: none; /* Esconde menu tradicional */
+    }
+    
+    .nav-desktop-toggle {
+        display: block; /* Mostra botão hamburger */
+    }
+}
+
+/* Tablet - Mostrar menu tradicional */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .nav-desktop {
+        display: flex; /* Mostra menu tradicional */
+    }
+    
+    .nav-desktop-toggle {
+        display: none; /* Esconde botão hamburger */
+    }
+}
+
+/* Melhorias para dispositivos muito pequenos */
+@media (max-width: 360px) {
+    .nav-desktop-menu {
+        right: 0.5rem;
+        min-width: 180px;
+    }
+    
+    .nav-desktop-link {
+        padding: 0.875rem 1.25rem;
+    }
+}
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(20, 20, 20, 0.95);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+    padding: 0 1rem;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo {
+    height: 2.5rem;
+    width: 100px;
+    background-image: url("41f470ea-b78f-4bfe-858f-6bef64bab1a2.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Botão Hamburguer */
+.nav-mobile-toggle {
+    display: block;
+    z-index: 60;
+}
+
+.mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25px;
+    height: 25px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    box-sizing: content-box;
+}
+
+.hamburger-line {
+    width: 100%;
+    height: 3px;
+    background: var(--foreground);
+    transition: var(--transition-smooth);
+    border-radius: 2px;
+}
+
+.mobile-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Menu Mobile - AGORA empurra o conteúdo para baixo */
+.nav-mobile {
+    display: none;
+    position: relative; /* Mudado de fixed para relative */
+    width: 100%;
+    background: rgba(20, 20, 20, 0.98);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(51, 51, 51, 0.5);
+    padding: 0;
+    z-index: 45;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.nav-mobile.active {
+    display: block;
+    max-height: 500px; /* Altura suficiente para todos os itens */
+    animation: slideDown 0.3s ease-out;
+}
+
+.nav-mobile-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: var(--foreground);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid rgba(51, 51, 51, 0.3);
+    text-align: center;
+}
+
+.nav-mobile-link:last-child {
+    border-bottom: none;
+}
+
+.nav-mobile-link:hover {
+    color: var(--primary);
+    background: rgba(255, 107, 53, 0.1);
+    padding-left: 2rem;
+}
+
+/* Animações para o menu */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajuste no conteúdo principal para empurrar quando o menu abre */
+.main-content {
+    transition: transform 0.3s ease-out;
+}
+
+.main-content.menu-open {
+    transform: translateY(calc(100% - 4rem)); /* Empurra o conteúdo para baixo */
+}
+
+/* REMOVENDO o overlay já que não vamos mais usar */
+.mobile-overlay {
+    display: none !important;
+}
+
+/* Estilos específicos para desktop */
+@media (min-width: 769px) {
+    .nav-mobile {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 0;
+        border-top: 1px solid rgba(51, 51, 51, 0.5);
+        border-left: none;
+        border-right: none;
+    }
+    
+    .nav-mobile-link {
+        padding: 1.25rem 2rem;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+    }
+    
+    .nav-mobile-link:hover {
+        padding-left: 2.5rem;
+    }
+}
+
+/* Melhorias para dispositivos muito pequenos */
+@media (max-width: 360px) {
+    .nav-content {
+        height: 3.5rem;
+    }
+    
+    .nav-logo {
+        height: 2rem;
+        width: 80px;
+    }
+    
+    .nav-mobile-link {
+        padding: 0.875rem 1.25rem;
+    }
+}
+
+      .nav-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 4rem;
+          max-width: 1200px;
+          margin: 0 auto;
+      }
+
+      .nav-logo {
+          height: 2.5rem;
+          width: 100px;
+          background-image: url("41f470ea-b78f-4bfe-858f-6bef64bab1a2.png");
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+      }
+
+      /* Menu Desktop Tradicional (será ocultado) */
+      .nav-desktop {
+          display: none;
+          align-items: center;
+          gap: 1.5rem;
+      }
+
+      .nav-link {
+          color: var(--foreground);
+          text-decoration: none;
+          font-weight: 500;
+          transition: var(--transition-smooth);
+          padding: 0.5rem 0.75rem;
+          border-radius: 0.5rem;
+      }
+
+      .nav-link:hover {
+          color: var(--primary);
+          background: rgba(255, 107, 53, 0.1);
+      }
+
+      /* Botão Hamburguer - Visível em TODOS os dispositivos */
+      .nav-mobile-toggle {
+          display: block;
+          z-index: 60;
+      }
+
+      .mobile-menu-btn {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          width: 25px;
+          height: 25px;
+          padding: 10px; /* Área de clique maior */
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          box-sizing: content-box; /* Mantém o conteúdo em 25px */
+      }
+
+      .hamburger-line {
+          width: 100%;
+          height: 3px;
+          background: var(--foreground);
+          transition: var(--transition-smooth);
+          border-radius: 2px;
+      }
+
+      .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+          transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+          opacity: 0;
+      }
+
+      .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+          transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* Menu Mobile - Visível em TODOS os dispositivos quando ativado */
+      .nav-mobile {
+          display: none;
+          position: fixed;
+          top: 4rem;
+          left: 0;
+          right: 0;
+          background: rgba(20, 20, 20, 0.98);
+          backdrop-filter: blur(20px);
+          border-top: 1px solid rgba(51, 51, 51, 0.5);
+          padding: 1rem 0;
+          z-index: 45;
+          box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-mobile.active {
+          display: block;
+          animation: slideDown 0.3s ease-out;
+      }
+
+      .nav-mobile-link {
+          display: block;
+          padding: 1rem 1.5rem;
+          color: var(--foreground);
+          text-decoration: none;
+          font-weight: 500;
+          transition: var(--transition-smooth);
+          border-bottom: 1px solid rgba(51, 51, 51, 0.3);
+          text-align: center;
+      }
+
+      .nav-mobile-link:last-child {
+          border-bottom: none;
+      }
+
+      .nav-mobile-link:hover {
+          color: var(--primary);
+          background: rgba(255, 107, 53, 0.1);
+          padding-left: 2rem;
+      }
+
+      /* Animações para o menu */
+      @keyframes slideDown {
+          from {
+              opacity: 0;
+              transform: translateY(-10px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      /* Quando o menu está aberto, evitar scroll no body */
+      body.mobile-menu-open {
+          overflow: hidden;
+      }
+
+      /* Overlay para quando o menu está aberto */
+      .mobile-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.7);
+          z-index: 40;
+          display: none;
+      }
+
+      .mobile-overlay.active {
+          display: block;
+          animation: fadeIn 0.3s ease-out;
+      }
+
+      @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+      }
+
+      /* Estilos específicos para desktop - menu hamburger */
+      @media (min-width: 769px) {
+          .nav-mobile {
+              top: 4rem;
+              left: auto;
+              right: 1rem;
+              width: 300px;
+              border-radius: 0.75rem;
+              border-top: none;
+              border: 1px solid rgba(51, 51, 51, 0.5);
+          }
+          
+          .nav-mobile-link {
+              padding: 1.25rem 2rem;
+              font-size: 1.1rem;
+              border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+          }
+          
+          .nav-mobile-link:hover {
+              padding-left: 2.5rem;
+          }
+      }
+
+      /* Melhorias para dispositivos muito pequenos */
+      @media (max-width: 360px) {
+          .nav-content {
+              height: 3.5rem;
+          }
+          
+          .nav-logo {
+              height: 2rem;
+              width: 80px;
+          }
+          
+          .nav-mobile {
+              top: 3.5rem;
+          }
+          
+          .nav-mobile-link {
+              padding: 0.875rem 1.25rem;
+          }
+      }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+
+        .nav-logo {
+            height: 2.5rem;
+            width: 100px;
+            background-image: url("41f470ea-b78f-4bfe-858f-6bef64bab1a2.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .nav-desktop {
+            display: none;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--foreground);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-mobile-toggle {
+            display: block;
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 25px;
+            padding: 10px; /* Área de clique maior */
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            box-sizing: content-box; /* Mantém o conteúdo em 25px */
+        }
+
+        .hamburger-line {
+            width: 100%;
+            height: 2px;
+            background: var(--foreground);
+            transition: var(--transition-smooth);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        .nav-mobile {
+            display: none;
+            padding: 1rem 0;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(16px);
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .nav-mobile.active {
+            display: block;
+        }
+
+        .nav-mobile-link {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--foreground);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-mobile-link:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 4rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--brand-dark), var(--background), var(--brand-darker));
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, transparent, rgba(255, 107, 53, 0.05), transparent);
+        }
+
+        .hero-floating-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-1 {
+            top: 5rem;
+            left: 2.5rem;
+            width: 8rem;
+            height: 8rem;
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .floating-2 {
+            bottom: 5rem;
+            right: 2.5rem;
+            width: 12rem;
+            height: 12rem;
+            background: rgba(255, 107, 53, 0.05);
+            animation-delay: 2s;
+        }
+
+        .hero-content {
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: slideUp 0.8s ease-out forwards;
+            padding: 0 1rem;
+        }
+
+        .hero-logo {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-logo-img {
+            height: 8rem;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--muted-foreground);
+            margin-bottom: 2rem;
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
+        }
+
+        .hero-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--brand-orange-light));
+            border-radius: 0.75rem;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        /* Hero Stats Section - Correção */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            max-width: 100%;
+            margin: 0 auto;
+            margin-top: 3rem;
+            padding: 0 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition-smooth);
+            flex: 1;
+            min-width: 150px;
+            max-width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-card:hover {
+            box-shadow: var(--shadow-glow);
+        }
+
+        .stat-icon {
+            width: 2rem;
+            height: 2rem;
+            color: var(--primary);
+            margin: 0 auto 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card.active .stat-icon {
+            transform: scale(1.2);
+            color: var(--brand-orange-light);
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card.active .stat-number {
+            font-size: 3rem;
+            color: var(--brand-orange-light);
+        }
+
+        .stat-label {
+            color: var(--muted-foreground);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-card.active .stat-label {
+            color: var(--foreground);
+            font-weight: 600;
+        }
+
+        /* Animações */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+
+        .stat-card.active {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 768px) {
+            .hero-stats {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                min-width: 120px;
+                max-width: 160px;
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-card.active .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .stat-label {
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stat-card {
+                min-width: 100px;
+                max-width: 140px;
+                padding: 0.75rem;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .stat-card.active .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            
+            .stat-label {
+                font-size: 0.75rem;
+            }
+        }
+        .carousel-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 0.5rem;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--muted-foreground);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .carousel-indicator.active {
+            background: var(--brand-orange);
+            transform: scale(1.2);
+        }
+
+        .carousel-btn {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            color: var(--foreground);
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .carousel-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        /* Animações */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 107, 53, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 53, 0); }
+        }
+
+        .stat-card.active {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .stats-carousel {
+                height: 160px;
+            }
+            
+            .stat-card {
+                padding: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-card.active .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .carousel-btn {
+                width: 2rem;
+                height: 2rem;
+            }
+            
+            .carousel-icon {
+                width: 1rem;
+                height: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-carousel {
+                height: 140px;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .stat-card.active .stat-number {
+                font-size: 2rem;
+            }
+            
+            .stat-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+        .stat-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--primary);
+            margin: 0 auto 0.75rem;
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.75rem;
+            font-weight: 400;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+            letter-spacing: 1px;
+        }
+
+        .stat-label {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 0;
+            position: relative;
+        }
+
+        /* Partners Section */
+        .partners {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, transparent, rgba(38, 38, 38, 0.3));
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .partner-card {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            filter: grayscale(1);
+        }
+
+        .partner-card:hover {
+            transform: scale(1.05);
+            filter: grayscale(0);
+        }
+
+        .partner-logo {
+            height: 3rem;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* Blog Section */
+        .blog {
+            padding: 4rem 0;
+        }
+
+        /* Admin Panel Styles */
+        .admin-panel {
+            max-width: 100%;
+            margin: 0 auto 3rem;
+        }
+
+        .admin-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .admin-login {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--input);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--foreground);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
+        }
+
+        .admin-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+
+        .admin-dashboard {
+            max-width: 100%;
+            margin: 0 auto 3rem;
+        }
+
+        .admin-header {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .admin-logout-btn {
+            background: #dc2626;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.875rem;
+        }
+
+        .admin-logout-btn:hover {
+            background: #b91c1c;
+        }
+
+        .admin-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .admin-tab-btn {
+            background: transparent;
+            color: var(--muted-foreground);
+            border: none;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            border-bottom: 2px solid transparent;
+            font-family: 'Exo 2', sans-serif;
+            font-size: 0.875rem;
+        }
+
+        .admin-tab-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .admin-tab-btn:hover {
+            color: var(--foreground);
+        }
+
+        .admin-tab-content {
+            display: none;
+        }
+
+        .admin-tab-content.active {
+            display: block;
+        }
+
+        .admin-form {
+            background: rgba(31, 31, 31, 0.5);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .admin-form h4 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .admin-form .admin-input,
+        .admin-textarea {
+            width: 100%;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: var(--input);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--foreground);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
+        }
+
+        .admin-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .admin-list {
+            background: rgba(31, 31, 31, 0.3);
+            border-radius: 0.75rem;
+            padding: 1rem;
+        }
+
+        .admin-item {
+            background: rgba(45, 45, 45, 0.5);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .admin-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .admin-item-info h5 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            letter-spacing: 0.5px;
+        }
+
+        .admin-item-info p {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+        }
+
+        .admin-item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .admin-edit-btn,
+        .admin-delete-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: var(--transition-smooth);
+            font-family: 'Exo 2', sans-serif;
+        }
+
+        .admin-edit-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .admin-edit-btn:hover {
+            background: var(--brand-orange-light);
+        }
+
+        .admin-delete-btn {
+            background: #dc2626;
+            color: white;
+        }
+
+        .admin-delete-btn:hover {
+            background: #b91c1c;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .blog-card {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .blog-card:hover {
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 12rem;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .blog-card:hover .blog-img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 1.25rem;
+        }
+
+        .blog-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            letter-spacing: 1px;
+        }
+
+        .blog-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            color: var(--muted-foreground);
+        }
+
+        .blog-author,
+        .blog-date {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .meta-icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .blog-excerpt {
+            color: var(--muted-foreground);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            font-size: 0.875rem;
+        }
+
+        .blog-read-more {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+
+        .blog-read-more:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Videos Section */
+        .videos {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, transparent, rgba(38, 38, 38, 0.3));
+        }
+
+        .video-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            background: rgba(31, 31, 31, 0.3);
+            padding: 0.5rem;
+            border-radius: 0.75rem;
+            backdrop-filter: blur(16px);
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: transparent;
+            color: var(--muted-foreground);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video-card {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .video-card.hidden {
+            display: none;
+        }
+
+        .video-card:hover {
+            box-shadow: var(--shadow-glow);
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: var(--transition-smooth);
+        }
+
+        .video-card:hover .video-img {
+            transform: scale(1.05);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 107, 53, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            color: white;
+        }
+
+        .play-btn:hover {
+            background: var(--primary);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            margin-left: 0.25rem;
+        }
+
+        .video-content {
+            padding: 1.25rem;
+        }
+
+        .video-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.125rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .video-description {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Comments Section */
+        .comments {
+            padding: 4rem 0;
+        }
+
+        .comments-carousel {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .carousel-btn {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            color: var(--foreground);
+        }
+
+        .carousel-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .carousel-icon {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .comments-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .comment-card {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .comment-card:hover {
+            box-shadow: var(--shadow-glow);
+        }
+
+        .comment-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--primary);
+            margin: 0 auto 0.75rem;
+        }
+
+        .comment-author {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .comment-text {
+            color: var(--muted-foreground);
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .comment-form-section {
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .form-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .comment-form {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .form-input,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            background: var(--input);
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            color: var(--foreground);
+            font-family: 'Exo 2', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, transparent, rgba(38, 38, 38, 0.3));
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            transition: var(--transition-smooth);
+        }
+
+        .contact-item:hover {
+            box-shadow: var(--shadow-glow);
+        }
+
+        .contact-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            color: var(--primary);
+        }
+
+        .contact-form {
+            background: rgba(31, 31, 31, 0.3);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(51, 51, 51, 0.5);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--brand-darker);
+            padding: 2rem 0 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo-img {
+            height: 2.5rem;
+            width: auto;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-social-link {
+            color: var(--muted-foreground);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-size: 0.875rem;
+        }
+
+        .footer-social-link:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--muted-foreground);
+            font-size: 0.75rem;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Notification Styles */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            z-index: 1000;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.3s ease-out;
+        }
+
+        .notification-success {
+            background: #10b981;
+        }
+
+        .notification-error {
+            background: #ef4444;
+        }
+
+        .notification-info {
+            background: #3b82f6;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive Design */
+        @media (min-width: 640px) {
+            .section-title {
+                font-size: 3rem;
+            }
+            
+            .section-text {
+                font-size: 1.125rem;
+                max-width: 80%;
+            }
+            
+            .hero-logo-img {
+                height: 10rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .comments-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .blog-meta {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-desktop {
+                display: flex;
+            }
+            
+            .nav-mobile-toggle {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-logo-img {
+                height: 12rem;
+            }
+            
+            .hero-description {
+                font-size: 1.25rem;
+                max-width: 80%;
+            }
+            
+            .hero-social {
+                gap: 1.5rem;
+            }
+            
+            .social-link {
+                width: 3rem;
+                height: 3rem;
+            }
+            
+            .social-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem;
+            }
+            
+            .stat-icon {
+                width: 2rem;
+                height: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .comments-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .comments-carousel {
+                flex-direction: row;
+                gap: 1.5rem;
+            }
+continue
+text
+        .carousel-btn {
+            width: 3rem;
+            height: 3rem;
+        }
+        
+        .carousel-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+        
+        .contact-content {
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        .admin-login {
+            flex-direction: row;
+        }
+        
+        .admin-header {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-item {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .section-title {
+            font-size: 4rem;
+        }
+        
+        .hero-logo-img {
+            height: 14rem;
+        }
+        
+        .hero-stats {
+            max-width: 64rem;
+            gap: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+        }
+        
+        .partners-grid {
+            max-width: 32rem;
+        }
+        
+        .blog-grid {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .videos-grid {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            padding: 0;
+        }
+        
+        .hero-content {
+            max-width: 64rem;
+        }
+        
+        .hero-description {
+            max-width: 32rem;
+        }
+    }
+</style>
+
+<!-- Navigation -->
+<nav class="navigation">
+    <div class="nav-content">
+        <div class="nav-logo"></div>
+        <!-- Botão Hamburguer Desktop (visível apenas em desktop) -->
+<div class="nav-desktop-toggle">
+    <button id="desktop-menu-btn" class="desktop-menu-btn">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+</div>
+
+<!-- Menu Desktop Hamburguer -->
+<div id="desktop-menu" class="nav-desktop-menu">
+    <a href="#home" class="nav-desktop-link">Início</a>
+    <a href="#about" class="nav-desktop-link">Sobre</a>
+    <a href="#partners" class="nav-desktop-link">Parceiros</a>
+    <a href="#blog" class="nav-desktop-link">Blog</a>
+    <a href="#videos" class="nav-desktop-link">Vídeos</a>
+    <a href="#contact" class="nav-desktop-link">Contato</a>
+</div>
+        
+        <!-- Botão Hamburguer -->
+        <div class="nav-mobile-toggle">
+            <button id="mobile-menu-btn" class="mobile-menu-btn">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Menu Mobile - AGORA empurra o conteúdo -->
+    <div id="mobile-menu" class="nav-mobile">
+        <a href="#home" class="nav-mobile-link">Início</a>
+        <a href="#about" class="nav-mobile-link">Sobre</a>
+        <a href="#partners" class="nav-mobile-link">Parceiros</a>
+        <a href="#blog" class="nav-mobile-link">Blog</a>
+        <a href="#videos" class="nav-mobile-link">Vídeos</a>
+        <a href="#contact" class="nav-mobile-link">Contato</a>
+    </div>
+</nav>
+
+            <!-- Mobile menu button -->
+            <div class="nav-mobile-toggle">
+                <button id="mobile-menu-btn" class="mobile-menu-btn">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="nav-mobile">
+            <a href="#home" class="nav-mobile-link">Início</a>
+            <a href="#about" class="nav-mobile-link">Sobre</a>
+            <a href="#partners" class="nav-mobile-link">Parceiros</a>
+            <a href="#blog" class="nav-mobile-link">Blog</a>
+            <a href="#videos" class="nav-mobile-link">Vídeos</a>
+            <a href="#contact" class="nav-mobile-link">Contato</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero main-content">
+    <div class="hero-bg"></div>
+    <div class="hero-floating-elements">
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+    </div>
+    
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="41f470ea-b78f-4bfe-858f-6bef64bab1a2.png" alt="Só Vai TV" class="hero-logo-img">
+            </div>
+            <p class="hero-description">
+                Bem-vindo à Só Vai TV, o seu hub de conteúdo criativo e humorado! 
+                Aqui, acreditamos que a vida é feita de momentos divertidos e que o riso é o melhor remédio.
+            </p>
+            
+            <!-- Social Media Links -->
+            <div class="hero-social">
+                <a href="https://www.tiktok.com/@sovaitv?_t=ZM-8yvgATnVTRG&_r=1" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 12l2 2 4-4"></path>
+                        <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"></path>
+                        <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"></path>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/sovai.tv/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="m16 11.37-4-4-4 4"></path>
+                        <path d="M16 16l-4-4-4 4"></path>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@Sovaitv25" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                        <polygon points="9.75,15.02 15.5,11.75 9.75,8.48"></polygon>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/107590360/admin/dashboard/" target="_blank" rel="noopener noreferrer" class="social-link">
+                    <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="hero-stats">
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <div class="stat-number">6K+</div>
+                <div class="stat-label">Seguidores</div>
+            </div>
+            
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <div class="stat-number">3.5M +</div>
+                <div class="stat-label">Visualizações</div>
+            </div>
+            
+            <div class="stat-card">
+                <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+                <div class="stat-number">2.5K+</div>
+                <div class="stat-label">interações</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about">
+    <div class="section-bg"></div>
+    <div class="container">
+        <div class="section-content">
+            <h2 class="section-title">Sobre a Só Vai TV</h2>
+            <p class="section-text">
+                Bem-vindo à Só Vai TV, o seu hub de conteúdo criativo e humorado! Aqui, acreditamos que a vida é feita de momentos divertidos e que o riso é o melhor remédio. Nossa missão é trazer um sopro de vida para o seu dia a dia, com vídeos e histórias que vão fazer você rir e refletir.
+            </p>
+            <br>
+            <p class="section-text">
+                Na Só Vai TV, somos apaixonados por contar histórias de maneira leve e original. Somos uma equipe motivada em sempre buscar personagens e relatos da vida real. Junte-se à nossa comunidade e descubra um mundo onde a criatividade não tem limites. Aqui, a diversão nunca acaba e a única regra é: só vai!
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Partners Section -->
+<section id="partners" class="partners">
+    <div class="container">
+        <div class="section-content">
+            <h2 class="section-title">Nossos Parceiros</h2>
+            <p class="section-text">
+                Trabalhamos com as principais marcas e plataformas do mercado, 
+                criando conteúdo que gera resultados excepcionais.
+            </p>
+        </div>
+        
+        <div class="partners-grid">
+            <a href="https://r1grupo.azurewebsites.net/r1-space/" target="_blank" rel="noopener noreferrer" class="partner-card">
+                <img src="5075743e-3b21-4258-954d-17356d60a93a.png" alt="R1 Grupo" class="partner-logo">
+            </a>
+            <a href="https://www.maktubstyle.com.br/?srsltid=AfmBOoqV2HusWf86SKtzuvoon65mBXiqHkk3ejdum04eTw3sb7YgkcnY" target="_blank" rel="noopener noreferrer" class="partner-card">
+                <img src="ed21262d-9118-4842-8043-be66e0b272d5.png" alt="Maktub Style" class="partner-logo">
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section id="blog" class="blog">
+    <div class="container">
+        <div class="section-content">
+            <h2 class="section-title" id="blog-title">Blog</h2>
+            <p class="section-text">
+                Acompanhe nossas dicas, insights e novidades do mundo da criação de conteúdo.
+            </p>
+        </div>
+        
+        <!-- Admin Panel -->
+        <div id="admin-panel" class="admin-panel" style="display: none;">
+            <div class="glass-card">
+                <h3 class="admin-title">Área do Administrador</h3>
+                <div class="admin-login">
+                    <input type="password" id="admin-password" placeholder="Digite a senha admin" class="admin-input">
+                    <button id="admin-login-btn" class="brand-button">Entrar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard (hidden by default) -->
+        <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+            <div class="glass-card">
+                <div class="admin-header">
+                    <h3 class="admin-title">Painel Administrativo</h3>
+                    <button id="admin-logout-btn" class="admin-logout-btn">Sair</button>
+                </div>
+                
+                <div class="admin-tabs">
+                    <button class="admin-tab-btn active" data-tab="blog">Blog</button>
+                    <button class="admin-tab-btn" data-tab="videos">Vídeos</button>
+                    <button class="admin-tab-btn" data-tab="events">Eventos</button>
+                    <button class="admin-tab-btn" data-tab="comments">Comentários</button>
+                </div>
+
+                <!-- Blog Management -->
+                <div id="admin-blog" class="admin-tab-content active">
+                    <div class="admin-form">
+                        <h4>Adicionar/Editar Post do Blog</h4>
+                        <input type="text" id="blog-title-input" placeholder="Título do Post" class="admin-input">
+                        <input type="text" id="blog-author-input" placeholder="Autor" class="admin-input">
+                        <input type="url" id="blog-image-input" placeholder="URL da Imagem" class="admin-input">
+                        <textarea id="blog-excerpt-input" placeholder="Resumo do Post" class="admin-textarea"></textarea>
+                        <button id="add-blog-btn" class="brand-button">Adicionar Post</button>
+                    </div>
+                    <div id="blog-list" class="admin-list"></div>
+                </div>
+
+                <!-- Video Management -->
+                <div id="admin-videos" class="admin-tab-content">
+                    <div class="admin-form">
+                        <h4>Adicionar/Editar Vídeo de Referência</h4>
+                        <input type="text" id="video-title-input" placeholder="Título do Vídeo" class="admin-input">
+                        <select id="video-category-input" class="admin-input">
+                            <option value="reference">Vídeo de Referência</option>
+                            <option value="event">Evento</option>
+                        </select>
+                        <input type="url" id="video-thumbnail-input" placeholder="URL da Thumbnail" class="admin-input">
+                        <input type="url" id="video-url-input" placeholder="URL do Vídeo" class="admin-input">
+                        <textarea id="video-description-input" placeholder="Descrição do Vídeo" class="admin-textarea"></textarea>
+                        <button id="add-video-btn" class="brand-button">Adicionar Vídeo</button>
+                    </div>
+                    <div id="video-list" class="admin-list"></div>
+                </div>
+
+                <!-- Event Management -->
+                <div id="admin-events" class="admin-tab-content">
+                    <div class="admin-form">
+                        <h4>Adicionar/Editar Evento</h4>
+                        <input type="text" id="event-title-input" placeholder="Nome do Evento" class="admin-input">
+                        <input type="date" id="event-date-input" class="admin-input">
+                        <input type="text" id="event-location-input" placeholder="Local do Evento" class="admin-input">
+                        <textarea id="event-description-input" placeholder="Descrição do Evento" class="admin-textarea"></textarea>
+                        <button id="add-event-btn" class="brand-button">Adicionar Evento</button>
+                    </div>
+                    <div id="event-list" class="admin-list"></div>
+                </div>
+
+                <!-- Comment Management -->
+                <div id="admin-comments" class="admin-tab-content">
+                    <div class="admin-form">
+                        <h4>Gerenciar Comentários</h4>
+                        <p>Comentários pendentes de aprovação:</p>
+                    </div>
+                    <div id="comment-list" class="admin-list"></div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Blog Posts -->
+        <div id="blog-grid" class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="Ft1.png" alt="O Futuro do Marketing Digital em 2024" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Piloto!! 🏎️🏎️🏎️ </h3>
+                    <div class="blog-meta">
+                        <span class="blog-author">
+                            <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Equipe Só Vai TV
+                        </span>
+                        <span class="blog-date">
+                            <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            06/08/2025
+                        </span>
+                    </div>
+                    <p class="blog-excerpt">
+                        Vejam os bastidores do Piloto sobre o podcast da Só Vai Tv, (Vulgo Só Vai Cast).
+                    </p>
+                    <a href="https://www.instagram.com/p/DNB3iYuRzti/" target=_blank class= "blog-read-more">Ler Mais</a>
+                </div>
+            </article>
+
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="WhatsApp Image 2025-08-18 at 17.58.25 (11).jpeg" alt="Como Criar Conteúdo Viral" class="blog-img">
+                </div>
+                <div class="blog-content">
+                    <h3 class="blog-title">Podcast da Só Vai TV (Só Vai Cast)</h3>
+                    <div class="blog-meta">
+                        <span class="blog-author">
+                            <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Equipe Só Vai TV
+                        </span>
+                        <span class="blog-date">
+                            <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                            29/05/2025
+                        </span>
+                    </div>
+                    <p class="blog-excerpt">
+                        Ilustre noticis 
+                    </p>
+                    <a href="https://www.instagram.com/reel/DKPdPzIBhLe/?utm_source=ig_web_copy_link" target=_blank class="blog-read-more">Ler Mais</a>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Videos Section -->
+<section id="videos" class="videos">
+    <div class="container">
+        <div class="section-content">
+            <h2 class="section-title">Nossos Trabalhos</h2>
+            <p class="section-text">
+                Confira nossos projetos mais recentes e eventos que marcaram nossa trajetória.
+            </p>
+        </div>
+        
+        <!-- Category Filter -->
+        <div class="video-filters">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="reference">Vídeos de Referência</button>
+                <button class="filter-btn" data-filter="event">Eventos</button>
+            </div>
+        </div>
+        
+        <!-- Videos Grid -->
+        <div id="videos-grid" class="videos-grid">
+            <div class="video-card" data-category="reference">
+                <div class="video-thumbnail">
+                    <img src="WhatsApp Image 2025-08-18 at 18.18.13.jpeg" alt="Vídeo de Referência 1" class="video-img">
+                    <button class="play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="video-content">
+                    <h3 class="video-title">Arena Kings Awards</h3>
+                    <p class="video-description">Que evento, senhoras e senhores! No domingo, tivemos a honra de participar presencialmente do Arena Kings Awards, e o evento foi sensacional! 🏆🤩</p>
+                    <br>
+                    <a href="https://www.instagram.com/reel/DKK8eqUxgIu/?utm_source=ig_web_copy_link&igsh=NGFjcmtyYW5zdXV1" class="blog-read-more">Ver Mais</a>
+                </div>
+            </div>
+            
+            <div class="video-card" data-category="event">
+                <div class="video-thumbnail">
+                    <img src="WhatsApp Image 2025-08-18 at 10.46.25 (1).jpeg" alt="Evento 1" class="video-img">
+                    <button class="play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5,3 19,12 5,21"></polygon>
+                        </svg>
+                    </button>
+                </div>
+                <div class="video-content">
+                    <h3 class="video-title">Iconico Influent Summit, evento dos influenciadores onde a Só Vai Tv marcou presença e foi um evento cheio de aprendizados!</h3>
+                    <p class="video-description">Cobertura completa do evento com momentos exclusivos.</p>
+                    <br>
+                    <a href="https://www.instagram.com/reel/DNWXoCLRA9z/?utm_source=ig_web_copy_link&igsh=MWRrcWo2MGpqbGtqcw==" class="blog-read-more">Ver Mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comments Section -->
+<section id="comments" class="comments">
+    <div class="container">
+        <div class="section-content">
+            <h2 class="section-title">O Que Dizem Sobre Nós</h2>
+            <p class="section-text">
+                Veja os comentários de quem já conhece nosso trabalho.
+            </p>
+        </div>
+        
+        <div class="comments-carousel">
+            <button id="prev-comment" class="carousel-btn prev-btn">
+                <svg class="carousel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+            </button>
+            
+            <div id="comments-container" class="comments-container"></div>
+            
+            <button id="next-comment" class="carousel-btn next-btn">
+                <svg class="carousel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"></polyline>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Comment Form -->
+        <div class="comment-form-section">
+            <h3 class="form-title">Deixe seu Comentário</h3>
+            <form id="comment-form" class="comment-form">
+                <input type="text" id="comment-name" placeholder="Seu Nome" class="form-input" required>
+                <textarea id="comment-text" placeholder="Seu Comentário" class="form-textarea" required></textarea>
+                <button type="submit" class="brand-button">Enviar Comentário</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="section-content">
+            <h2 class="section-title">Entre em Contato</h2>
+            <p class="section-text">
+                Pronto para transformar suas ideias em conteúdo impactante? 
+                Entre em contato conosco e vamos conversar sobre seu projeto.
+            </p>
+        </div>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <span>sovaitv25@gmail.com</span>
+                </div>
+                
+                <div class="contact-item">
+                    <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <span>São Paulo, SP</span>
+                </div>
+            </div>
+            
+            <form class="contact-form">
+                <input type="text" placeholder="Seu Nome" class="form-input" required>
+                <input type="email" placeholder="Seu E-mail" class="form-input" required>
+                <textarea placeholder="Sua Mensagem" class="form-textarea" required></textarea>
+                <button type="submit" class="brand-button">Enviar Mensagem</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="41f470ea-b78f-4bfe-858f-6bef64bab1a2.png" alt="Só Vai TV" class="footer-logo-img">
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://www.tiktok.com/@sovaitv?_t=ZM-8yvgATnVTRG&_r=1" target="_blank" rel="noopener noreferrer" class="footer-social-link">TikTok</a>
+                <a href="https://www.instagram.com/sovai.tv/" target="_blank" rel="noopener noreferrer" class="footer-social-link">Instagram</a>
+                <a href="https://www.youtube.com/@Sovaitv25" target="_blank" rel="noopener noreferrer" class="footer-social-link">YouTube</a>
+                <a href="https://www.linkedin.com/company/107590360/admin/dashboard/" target="_blank" rel="noopener noreferrer" class="footer-social-link">LinkedIn</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Só Vai TV. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+  // JavaScript para o menu hamburger no desktop
+document.addEventListener('DOMContentLoaded', function() {
+    // Elementos do menu desktop hamburger
+    const desktopMenuBtn = document.getElementById('desktop-menu-btn');
+    const desktopMenu = document.getElementById('desktop-menu');
+    
+    // Menu Desktop Hamburguer
+    if (desktopMenuBtn && desktopMenu) {
+        desktopMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const isOpen = desktopMenu.classList.contains('active');
+            
+            if (isOpen) {
+                closeDesktopMenu();
+            } else {
+                openDesktopMenu();
+            }
+        });
+        
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', function(e) {
+            if (desktopMenu.classList.contains('active') && 
+                !desktopMenu.contains(e.target) && 
+                !desktopMenuBtn.contains(e.target)) {
+                closeDesktopMenu();
+            }
+        });
+        
+        // Fechar menu ao clicar nos links
+        const desktopLinks = document.querySelectorAll('.nav-desktop-link');
+        desktopLinks.forEach(link => {
+            link.addEventListener('click', closeDesktopMenu);
+        });
+        
+        // Fechar menu ao pressionar ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && desktopMenu.classList.contains('active')) {
+                closeDesktopMenu();
+            }
+        });
+    }
+    
+    function openDesktopMenu() {
+        desktopMenu.classList.add('active');
+        desktopMenuBtn.classList.add('active');
+    }
+    
+    function closeDesktopMenu() {
+        desktopMenu.classList.remove('active');
+        desktopMenuBtn.classList.remove('active');
+    }
+    
+    // Fechar menu ao redimensionar
+    window.addEventListener('resize', function() {
+        if (desktopMenu && desktopMenu.classList.contains('active')) {
+            closeDesktopMenu();
+        }
+    });
+});
+  
+  // JavaScript para o menu que empurra o conteúdo
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+    const mainContent = document.querySelector('.main-content') || document.body;
+    
+    // Alternar menu
+    mobileMenuBtn.addEventListener('click', function() {
+        const isOpen = mobileMenu.classList.contains('active');
+        
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Fechar menu ao clicar nos links
+    const mobileLinks = document.querySelectorAll('.nav-mobile-link');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Fechar menu ao redimensionar a janela
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 769 && mobileMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+    
+    function openMenu() {
+        mobileMenu.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        mainContent.classList.add('menu-open');
+        body.classList.add('mobile-menu-open');
+        
+        // Adicionar evento para fechar ao clicar fora (apenas para desktop)
+        if (window.innerWidth >= 769) {
+            setTimeout(() => {
+                document.addEventListener('click', closeMenuOnClickOutside);
+            }, 10);
+        }
+    }
+    
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        mainContent.classList.remove('menu-open');
+        body.classList.remove('mobile-menu-open');
+        
+        // Remover evento de clique fora
+        document.removeEventListener('click', closeMenuOnClickOutside);
+    }
+    
+    function closeMenuOnClickOutside(event) {
+        if (!mobileMenu.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+            closeMenu();
+        }
+    }
+});
+
+  // JavaScript para o menu hamburger em todos os dispositivos
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const body = document.body;
+    
+    // Criar overlay para o menu
+    const overlay = document.createElement('div');
+    overlay.className = 'mobile-overlay';
+    document.body.appendChild(overlay);
+    
+    // Alternar menu
+    mobileMenuBtn.addEventListener('click', function() {
+        const isOpen = mobileMenu.classList.contains('active');
+        
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+    
+    // Fechar menu ao clicar no overlay
+    overlay.addEventListener('click', closeMenu);
+    
+    // Fechar menu ao clicar nos links
+    const mobileLinks = document.querySelectorAll('.nav-mobile-link');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+    
+    // Fechar menu ao pressionar a tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+    
+    function openMenu() {
+        mobileMenu.classList.add('active');
+        mobileMenuBtn.classList.add('active');
+        overlay.classList.add('active');
+        body.classList.add('mobile-menu-open');
+    }
+    
+    function closeMenu() {
+        mobileMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
+        overlay.classList.remove('active');
+        body.classList.remove('mobile-menu-open');
+    }
+    
+    // Fechar menu ao redimensionar para tamanhos grandes (opcional)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 1024 && mobileMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+});
+    // Só Vai TV - JavaScript Functionality
+
+    document.addEventListener("DOMContentLoaded", function() {
+        // Sistema de autenticação seguro
+        const AuthSystem = {
+            // Senha codificada: S0V@1TV_2024!Br
+            encodedPassword: ["S", "0", "V", "@", "1", "T", "V", "_", "2", "0", "2", "4", "!", "B", "r"],
+            
+            decodePassword: function() {
+                // A senha já está na forma correta, não precisa de decodificação complexa
+                return this.encodedPassword.join("");
+            },
+            
+            validatePassword: function(inputPassword) {
+                return inputPassword === this.decodePassword();
+            }
+        };
+
+        // Sistema de armazenamento local
+        const DataManager = {
+            getBlogPosts: function() {
+                return JSON.parse(localStorage.getItem("sovaitv_blog_posts")) || [];
+            },
+            
+            setBlogPosts: function(posts) {
+                localStorage.setItem("sovaitv_blog_posts", JSON.stringify(posts));
+            },
+            
+            getVideos: function() {
+                return JSON.parse(localStorage.getItem("sovaitv_videos")) || [];
+            },
+            
+            setVideos: function(videos) {
+                localStorage.setItem("sovaitv_videos", JSON.stringify(videos));
+            },
+            
+            getEvents: function() {
+                return JSON.parse(localStorage.getItem("sovaitv_events")) || [];
+            },
+            
+            setEvents: function(events) {
+                localStorage.setItem("sovaitv_events", JSON.stringify(events));
+            },
+            
+            getComments: function() {
+                return JSON.parse(localStorage.getItem("sovaitv_comments")) || [];
+            },
+            
+            setComments: function(comments) {
+                localStorage.setItem("sovaitv_comments", JSON.stringify(comments));
+            }
+        };
+
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuLinks = document.querySelectorAll(".nav-mobile-link");
+
+        mobileMenuBtn.addEventListener("click", function() {
+            const isOpen = mobileMenu.classList.contains("active");
+            
+            if (isOpen) {
+                mobileMenu.classList.remove("active");
+                mobileMenuBtn.classList.remove("active");
+                document.body.classList.remove("mobile-menu-open");
+            } else {
+                mobileMenu.classList.add("active");
+                mobileMenuBtn.classList.add("active");
+                document.body.classList.add("mobile-menu-open");
+            }
+        });
+
+        // Close mobile menu when clicking on links
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener("click", function() {
+                mobileMenu.classList.remove("active");
+                mobileMenuBtn.classList.remove("active");
+                document.body.classList.remove("mobile-menu-open");
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        const allNavLinks = document.querySelectorAll("a[href^=\"#\"]");
+        allNavLinks.forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute("href");
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 64;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: "smooth"
+                    });
+                }
+            });
+        });
+
+        // Admin Panel Access (Triple click on Blog title)
+        const blogTitle = document.getElementById("blog-title");
+        const adminPanel = document.getElementById("admin-panel");
+        let clickCount = 0;
+        let clickTimer = null;
+
+        blogTitle.addEventListener("click", function() {
+            clickCount++;
+            
+            if (clickTimer) {
+                clearTimeout(clickTimer);
+            }
+            
+            clickTimer = setTimeout(function() {
+                if (clickCount >= 3) {
+                    adminPanel.style.display = "block";
+                    adminPanel.scrollIntoView({ behavior: "smooth" });
+                }
+                clickCount = 0;
+            }, 500);
+        });
+
+        // Admin Authentication
+        const adminPasswordInput = document.getElementById("admin-password");
+        const adminLoginBtn = document.getElementById("admin-login-btn");
+        const adminDashboard = document.getElementById("admin-dashboard");
+        const adminLogoutBtn = document.getElementById("admin-logout-btn");
+
+        adminLoginBtn.addEventListener("click", function() {
+            const password = adminPasswordInput.value;
+            
+            if (AuthSystem.validatePassword(password)) {
+                adminPanel.style.display = "none";
+                adminDashboard.style.display = "block";
+                adminPasswordInput.value = "";
+                loadAdminData();
+                showNotification("Login realizado com sucesso!", "success");
+            } else {
+                showNotification("Senha incorreta!", "error");
+                adminPasswordInput.value = "";
+            }
+        });
+
+        adminLogoutBtn.addEventListener("click", function() {
+            adminDashboard.style.display = "none";
+            showNotification("Logout realizado com sucesso!", "success");
+        });
+
+        // Admin Tab System
+    const adminTabBtns = document.querySelectorAll(".admin-tab-btn");
+        const adminTabContents = document.querySelectorAll(".admin-tab-content");
+
+        adminTabBtns.forEach(btn => {
+            btn.addEventListener("click", function() {
+                const tabId = this.getAttribute("data-tab");
+                
+                // Remove active class from all tabs and contents
+                adminTabBtns.forEach(b => b.classList.remove("active"));
+                adminTabContents.forEach(c => c.classList.remove("active"));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add("active");
+                document.getElementById(`admin-${tabId}`).classList.add("active");
+            });
+        });
+
+        // Blog Management
+        const blogTitleInput = document.getElementById("blog-title-input");
+        const blogAuthorInput = document.getElementById("blog-author-input");
+        const blogImageInput = document.getElementById("blog-image-input");
+        const blogExcerptInput = document.getElementById("blog-excerpt-input");
+        const addBlogBtn = document.getElementById("add-blog-btn");
+        const blogList = document.getElementById("blog-list");
+
+        let editingBlogId = null;
+
+        addBlogBtn.addEventListener("click", function() {
+            const title = blogTitleInput.value.trim();
+            const author = blogAuthorInput.value.trim();
+            const image = blogImageInput.value.trim();
+            const excerpt = blogExcerptInput.value.trim();
+
+            if (!title || !author || !excerpt) {
+                showNotification("Preencha todos os campos obrigatórios!", "error");
+                return;
+            }
+
+            const blogPosts = DataManager.getBlogPosts();
+            const currentDate = new Date().toLocaleDateString("pt-BR");
+
+            if (editingBlogId !== null) {
+                // Editing existing post
+                const postIndex = blogPosts.findIndex(post => post.id === editingBlogId);
+                if (postIndex !== -1) {
+                    blogPosts[postIndex] = {
+                        ...blogPosts[postIndex],
+                        title,
+                        author,
+                        image: image || "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80",
+                        excerpt
+                    };
+                }
+                editingBlogId = null;
+                addBlogBtn.textContent = "Adicionar Post";
+            } else {
+                // Adding new post
+                const newPost = {
+                    id: Date.now(),
+                    title,
+                    author,
+                    image: image || "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=800&q=80",
+                    excerpt,
+                    date: currentDate
+                };
+                blogPosts.push(newPost);
+            }
+
+            DataManager.setBlogPosts(blogPosts);
+            updateBlogDisplay();
+            clearBlogForm();
+            showNotification("Post salvo com sucesso!", "success");
+        });
+
+        function clearBlogForm() {
+            blogTitleInput.value = "";
+            blogAuthorInput.value = "";
+            blogImageInput.value = "";
+            blogExcerptInput.value = "";
+        }
+
+        function updateBlogDisplay() {
+            const blogPosts = DataManager.getBlogPosts();
+            const blogGrid = document.getElementById("blog-grid");
+            
+            // Update admin list
+            blogList.innerHTML = blogPosts.map(post => `
+                <div class="admin-item">
+                    <div class="admin-item-info">
+                        <h5>${post.title}</h5>
+                        <p>Por: ${post.author} | ${post.date}</p>
+                    </div>
+                    <div class="admin-item-actions">
+                        <button class="admin-edit-btn" onclick="editBlogPost(${post.id})">Editar</button>
+                        <button class="admin-delete-btn" onclick="deleteBlogPost(${post.id})">Excluir</button>
+                    </div>
+                </div>
+            `).join("");
+
+            // Update public blog grid
+            // Clear existing dynamic posts before adding new ones
+            const existingBlogCards = blogGrid.querySelectorAll(".blog-card");
+            existingBlogCards.forEach(card => {
+                // Only remove cards that were dynamically added (e.g., check for a data attribute)
+                if (card.dataset.dynamic === "true") {
+                    card.remove();
+                }
+            });
+
+            const dynamicPosts = blogPosts.map(post => `
+                <article class="blog-card" data-dynamic="true">
+                    <div class="blog-image">
+                        <img src="${post.image}" alt="${post.title}" class="blog-img">
+                    </div>
+                    <div class="blog-content">
+                        <h3 class="blog-title">${post.title}</h3>
+                        <div class="blog-meta">
+                            <span class="blog-author">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                ${post.author}
+                            </span>
+                            <span class="blog-date">
+                                <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                                ${post.date}
+                            </span>
+                        </div>
+                        <p class="blog-excerpt">${post.excerpt}</p>
+                        <button class="blog-read-more">Ler Mais</button>
+                    </div>
+                </article>
+            `).join("");
+
+            blogGrid.insertAdjacentHTML("beforeend", dynamicPosts);
+        }
+
+        // Video Management
+        const videoTitleInput = document.getElementById("video-title-input");
+        const videoCategoryInput = document.getElementById("video-category-input");
+        const videoThumbnailInput = document.getElementById("video-thumbnail-input");
+        const videoUrlInput = document.getElementById("video-url-input");
+        const videoDescriptionInput = document.getElementById("video-description-input");
+        const addVideoBtn = document.getElementById("add-video-btn");
+        const videoList = document.getElementById("video-list");
+
+        let editingVideoId = null;
+
+        addVideoBtn.addEventListener("click", function() {
+            const title = videoTitleInput.value.trim();
+            const category = videoCategoryInput.value;
+            const thumbnail = videoThumbnailInput.value.trim();
+            const url = videoUrlInput.value.trim();
+            const description = videoDescriptionInput.value.trim();
+
+            if (!title || !description) {
+                showNotification("Preencha todos os campos obrigatórios!", "error");
+                return;
+            }
+
+            const videos = DataManager.getVideos();
+
+            if (editingVideoId !== null) {
+                // Editing existing video
+                const videoIndex = videos.findIndex(video => video.id === editingVideoId);
+                if (videoIndex !== -1) {
+                    videos[videoIndex] = {
+                        ...videos[videoIndex],
+                        title,
+                        category,
+                        thumbnail: thumbnail || "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
+                        url,
+                        description
+                    };
+                }
+                editingVideoId = null;
+                addVideoBtn.textContent = "Adicionar Vídeo";
+            } else {
+                // Adding new video
+                const newVideo = {
+                    id: Date.now(),
+                    title,
+                    category,
+                    thumbnail: thumbnail || "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
+                    url,
+                    description
+                };
+                videos.push(newVideo);
+            }
+
+            DataManager.setVideos(videos);
+            updateVideoDisplay();
+            clearVideoForm();
+            showNotification("Vídeo salvo com sucesso!", "success");
+        });
+
+        function clearVideoForm() {
+            videoTitleInput.value = "";
+            videoCategoryInput.value = "reference";
+            videoThumbnailInput.value = "";
+            videoUrlInput.value = "";
+            videoDescriptionInput.value = "";
+        }
+
+        function updateVideoDisplay() {
+            const videos = DataManager.getVideos();
+            const videosGrid = document.getElementById("videos-grid");
+            
+            // Update admin list
+            videoList.innerHTML = videos.map(video => `
+                <div class="admin-item">
+                    <div class="admin-item-info">
+                        <h5>${video.title}</h5>
+                        <p>Categoria: ${video.category === "reference" ? "Vídeo de Referência" : "Evento"}</p>
+                    </div>
+                    <div class="admin-item-actions">
+                        <button class="admin-edit-btn" onclick="editVideo(${video.id})">Editar</button>
+                        <button class="admin-delete-btn" onclick="deleteVideo(${video.id})">Excluir</button>
+                    </div>
+                </div>
+            `).join("");
+
+            // Update public videos grid
+            const existingVideoCards = videosGrid.querySelectorAll(".video-card");
+            existingVideoCards.forEach(card => {
+                if (card.dataset.dynamic === "true") {
+                    card.remove();
+                }
+            });
+
+            const dynamicVideos = videos.map(video => `
+                <div class="video-card" data-category="${video.category}" data-dynamic="true">
+                    <div class="video-thumbnail">
+                        <img src="${video.thumbnail}" alt="${video.title}" class="video-img">
+                        <button class="play-btn" onclick="playVideo('${video.url}')">
+                            <svg class="play-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <polygon points="5,3 19,12 5,21"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="video-title">${video.title}</h3>
+                        <p class="video-description">${video.description}</p>
+                    </div>
+                </div>
+            `).join("");
+
+            videosGrid.insertAdjacentHTML("beforeend", dynamicVideos);
+            
+            // Reapply filter functionality
+            setupVideoFilters();
+        }
+
+        // Event Management
+        const eventTitleInput = document.getElementById("event-title-input");
+        const eventDateInput = document.getElementById("event-date-input");
+        const eventLocationInput = document.getElementById("event-location-input");
+        const eventDescriptionInput = document.getElementById("event-description-input");
+        const addEventBtn = document.getElementById("add-event-btn");
+        const eventList = document.getElementById("event-list");
+
+        let editingEventId = null;
+
+        addEventBtn.addEventListener("click", function() {
+            const title = eventTitleInput.value.trim();
+            const date = eventDateInput.value;
+            const location = eventLocationInput.value.trim();
+            const description = eventDescriptionInput.value.trim();
+
+            if (!title || !date || !location || !description) {
+                showNotification("Preencha todos os campos!", "error");
+                return;
+            }
+
+            const events = DataManager.getEvents();
+
+            if (editingEventId !== null) {
+                // Editing existing event
+                const eventIndex = events.findIndex(event => event.id === editingEventId);
+                if (eventIndex !== -1) {
+                    events[eventIndex] = {
+                        ...events[eventIndex],
+                        title,
+                        date,
+                        location,
+                        description
+                    };
+                }
+                editingEventId = null;
+                addEventBtn.textContent = "Adicionar Evento";
+            } else {
+                // Adding new event
+                const newEvent = {
+                    id: Date.now(),
+                    title,
+                    date,
+                    location,
+                    description
+                };
+                events.push(newEvent);
+            }
+
+            DataManager.setEvents(events);
+            updateEventDisplay();
+            clearEventForm();
+            showNotification("Evento salvo com sucesso!", "success");
+        });
+
+        function clearEventForm() {
+            eventTitleInput.value = "";
+            eventDateInput.value = "";
+            eventLocationInput.value = "";
+            eventDescriptionInput.value = "";
+        }
+
+        function updateEventDisplay() {
+            const events = DataManager.getEvents();
+            
+            eventList.innerHTML = events.map(event => `
+                <div class="admin-item">
+                    <div class="admin-item-info">
+                        <h5>${event.title}</h5>
+                        <p>${new Date(event.date).toLocaleDateString("pt-BR")} - ${event.location}</p>
+                    </div>
+                    <div class="admin-item-actions">
+                        <button class="admin-edit-btn" onclick="editEvent(${event.id})">Editar</button>
+                        <button class="admin-delete-btn" onclick="deleteEvent(${event.id})">Excluir</button>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        // Comment Management
+        const commentList = document.getElementById("comment-list");
+
+        function updateCommentDisplay() {
+            const comments = DataManager.getComments();
+            
+            commentList.innerHTML = comments.map(comment => `
+                <div class="admin-item">
+                    <div class="admin-item-info">
+                        <h5>${comment.name}</h5>
+                        <p>${comment.comment}</p>
+                    </div>
+                    <div class="admin-item-actions">
+                        <button class="admin-edit-btn" onclick="approveComment(${comment.id})">Aprovar</button>
+                        <button class="admin-delete-btn" onclick="deleteComment(${comment.id})">Excluir</button>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        // Global functions for admin actions
+        window.editBlogPost = function(id) {
+            const blogPosts = DataManager.getBlogPosts();
+            const post = blogPosts.find(p => p.id === id);
+            if (post) {
+                blogTitleInput.value = post.title;
+                blogAuthorInput.value = post.author;
+                blogImageInput.value = post.image;
+                blogExcerptInput.value = post.excerpt;
+                editingBlogId = id;
+                addBlogBtn.textContent = "Atualizar Post";
+            }
+        };
+
+        window.deleteBlogPost = function(id) {
+            if (confirm("Tem certeza que deseja excluir este post?")) {
+                const blogPosts = DataManager.getBlogPosts();
+                const filteredPosts = blogPosts.filter(post => post.id !== id);
+                DataManager.setBlogPosts(filteredPosts);
+                updateBlogDisplay();
+                showNotification("Post excluído com sucesso!", "success");
+            }
+        };
+
+        window.editVideo = function(id) {
+            const videos = DataManager.getVideos();
+            const video = videos.find(v => v.id === id);
+            if (video) {
+                videoTitleInput.value = video.title;
+                videoCategoryInput.value = video.category;
+                videoThumbnailInput.value = video.thumbnail;
+                videoUrlInput.value = video.url;
+                videoDescriptionInput.value = video.description;
+                editingVideoId = id;
+                addVideoBtn.textContent = "Atualizar Vídeo";
+            }
+        };
+
+        window.deleteVideo = function(id) {
+            if (confirm("Tem certeza que deseja excluir este vídeo?")) {
+                const videos = DataManager.getVideos();
+                const filteredVideos = videos.filter(video => video.id !== id);
+                DataManager.setVideos(filteredVideos);
+                updateVideoDisplay();
+                showNotification("Vídeo excluído com sucesso!", "success");
+            }
+        };
+
+        window.editEvent = function(id) {
+            const events = DataManager.getEvents();
+            const event = events.find(e => e.id === id);
+            if (event) {
+                eventTitleInput.value = event.title;
+                eventDateInput.value = event.date;
+                eventLocationInput.value = event.location;
+                eventDescriptionInput.value = event.description;
+                editingEventId = id;
+                addEventBtn.textContent = "Atualizar Evento";
+            }
+        };
+
+        window.deleteEvent = function(id) {
+            if (confirm("Tem certeza que deseja excluir este evento?")) {
+                const events = DataManager.getEvents();
+                const filteredEvents = events.filter(event => event.id !== id);
+                DataManager.setEvents(filteredEvents);
+                updateEventDisplay();
+                showNotification("Evento excluído com sucesso!", "success");
+            }
+        };
+
+        window.approveComment = function(id) {
+            const comments = DataManager.getComments();
+            const commentIndex = comments.findIndex(c => c.id === id);
+            if (commentIndex !== -1) {
+                comments[commentIndex].approved = true;
+                DataManager.setComments(comments);
+                updateCommentDisplay();
+                updateCommentsCarousel();
+                showNotification("Comentário aprovado!", "success");
+            }
+        };
+
+        window.deleteComment = function(id) {
+            if (confirm("Tem certeza que deseja excluir este comentário?")) {
+                const comments = DataManager.getComments();
+                const filteredComments = comments.filter(comment => comment.id !== id);
+                DataManager.setComments(filteredComments);
+                updateCommentDisplay();
+                updateCommentsCarousel();
+                showNotification("Comentário excluído com sucesso!", "success");
+            }
+        };
+
+        window.playVideo = function(url) {
+            if (url) {
+                window.open(url, "_blank");
+            } else {
+                showNotification("URL do vídeo não disponível", "error");
+            }
+        };
+
+        function loadAdminData() {
+            updateBlogDisplay();
+            updateVideoDisplay();
+            updateEventDisplay();
+            updateCommentDisplay();
+        }
+
+        // Video Filter Functionality
+        function setupVideoFilters() {
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const videoCards = document.querySelectorAll(".video-card");
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const filter = this.getAttribute("data-filter");
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+                    
+                    // Filter video cards
+                    videoCards.forEach(card => {
+                        const category = card.getAttribute("data-category");
+                        
+                        if (filter === "all" || category === filter) {
+                            card.classList.remove("hidden");
+                        } else {
+                            card.classList.add("hidden");
+                        }
+                    });
+                });
+            });
+        }
+
+        // Initialize video filters
+        setupVideoFilters();
+
+        // Comments Carousel Functionality
+        const defaultComments = [
+            {
+                name: "Maria Silva",
+                comment: "Conteúdo incrível! Sempre me divirto assistindo os vídeos da Só Vai TV.",
+                approved: true
+            },
+            {
+                name: "João Santos",
+                comment: "Equipe muito criativa, adoro o humor de vocês!",
+                approved: true
+            },
+            {
+                name: "Ana Costa",
+                comment: "Melhor canal de entretenimento! Continuem com esse trabalho maravilhoso.",
+                approved: true
+            },
+            {
+                name: "Pedro Oliveira",
+                comment: "Vocês são demais! Sempre esperando pelos próximos vídeos.",
+                approved: true
+            },
+            {
+                name: "Carla Mendes",
+                comment: "Conteúdo de qualidade e muito divertido. Parabéns!",
+                approved: true
+            }
+        ];
+
+        // Initialize default comments if none exist
+        if (DataManager.getComments().length === 0) {
+            DataManager.setComments(defaultComments);
+        }
+
+        let currentCommentIndex = 0;
+        const commentsContainer = document.getElementById("comments-container");
+        const prevCommentBtn = document.getElementById("prev-comment");
+        const nextCommentBtn = document.getElementById("next-comment");
+
+        function updateCommentsCarousel() {
+            const allComments = DataManager.getComments();
+            const approvedComments = allComments.filter(comment => comment.approved);
+            
+            if (approvedComments.length === 0) return;
+
+            const visibleComments = [];
+            for (let i = 0; i < Math.min(3, approvedComments.length); i++) {
+                const index = (currentCommentIndex + i) % approvedComments.length;
+                visibleComments.push(approvedComments[index]);
+            }
+
+            commentsContainer.innerHTML = visibleComments.map(comment => `
+                <div class="comment-card">
+                    <svg class="comment-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                    <h4 class="comment-author">${comment.name}</h4>
+                    <p class="comment-text">${comment.comment}</p>
+                </div>
+            `).join("");
+        }
+
+        prevCommentBtn.addEventListener("click", function() {
+            const approvedComments = DataManager.getComments().filter(c => c.approved);
+            currentCommentIndex = (currentCommentIndex - 1 + approvedComments.length) % approvedComments.length;
+            updateCommentsCarousel();
+        });
+
+        nextCommentBtn.addEventListener("click", function() {
+            const approvedComments = DataManager.getComments().filter(c => c.approved);
+            currentCommentIndex = (currentCommentIndex + 1) % approvedComments.length;
+            updateCommentsCarousel();
+        });
+
+        // Comment Form Functionality
+        const commentForm = document.getElementById("comment-form");
+        const commentNameInput = document.getElementById("comment-name");
+        const commentTextInput = document.getElementById("comment-text");
+
+        commentForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const name = commentNameInput.value.trim();
+            const text = commentTextInput.value.trim();
+            
+            if (name && text) {
+                const comments = DataManager.getComments();
+                const newComment = {
+                    id: Date.now(),
+                    name: name,
+                    comment: text,
+                    approved: false,
+                    date: new Date().toISOString()
+                };
+                
+                comments.push(newComment);
+                DataManager.setComments(comments);
+                
+                // Clear form
+                commentNameInput.value = "";
+                commentTextInput.value = "";
+                
+                showNotification("Comentário enviado para aprovação! Obrigado pelo feedback.", "success");
+            }
+        });
+
+        // Blog read more functionality
+        document.addEventListener("click", function(e) {
+            if (e.target.classList.contains("blog-read-more")) {
+                const blogCard = e.target.closest(".blog-card");
+                const title = blogCard.querySelector(".blog-title").textContent;
+                showNotification(`Abrindo artigo: "${title}"`, "info");
+            }
+        });
+
+        // Notification System
+        function showNotification(message, type = "info") {
+            // Remove existing notifications
+            const existingNotifications = document.querySelectorAll(".notification");
+            existingNotifications.forEach(notification => notification.remove());
+
+            const notification = document.createElement("div");
+            notification.className = `notification notification-${type}`;
+            notification.textContent = message;
+            
+            // Styles for notification
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === "success" ? "#10b981" : type === "error" ? "#ef4444" : "#3b82f6"};
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: 0.5rem;
+                z-index: 1000;
+                box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+                animation: slideIn 0.3s ease-out;
+            `;
+
+            document.body.appendChild(notification);
+
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = "slideOut 0.3s ease-out";
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add CSS for notification animations
+        const style = document.createElement("style");
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize comments display
+        updateCommentsCarousel();
+
+        // Auto-rotate comments every 5 seconds
+        setInterval(function() {
+            const approvedComments = DataManager.getComments().filter(c => c.approved);
+            if (approvedComments.length > 0) {
+                currentCommentIndex = (currentCommentIndex + 1) % approvedComments.length;
+                updateCommentsCarousel();
+            }
+        }, 5000);
+
+        // Contact Form
+        const contactForm = document.querySelector(".contact-form");
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            showNotification("Mensagem enviada com sucesso! Entraremos em contato em breve.", "success");
+            contactForm.reset();
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        const animatedElements = document.querySelectorAll(".stat-card, .partner-card, .blog-card, .video-card, .comment-card");
+        animatedElements.forEach(el => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        const navigation = document.querySelector(".navigation");
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener("scroll", function() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 100) {
+                navigation.style.background = "rgba(20, 20, 20, 0.95)";
+            } else {
+                navigation.style.background = "rgba(20, 20, 20, 0.8)";
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
+        // Add loading animation
+        window.addEventListener("load", function() {
+            document.body.classList.add("loaded");
+        });
+    });
+
+    // Utility function for smooth scrolling
+    function smoothScrollTo(targetId, offset = 64) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            const offsetTop = targetElement.offsetTop - offset;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: "smooth"
+            });
+        }
+    }
+
+    // Export for potential external use
+    window.SovaiTV = {
+        smoothScrollTo: smoothScrollTo
+    };
+</script>
+</body>
+</html>
